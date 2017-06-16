@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+<title>Galleria d'arte</title>
+
+<!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+	<div class="container">
+		<!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+		<div th:if="${not #lists.isEmpty(opere)}">
+			<h2>Lista Opere</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>Id</th>
+					<th>titolo</th>
+					<th>tecnica</th>
+					<th>annoRealizzazione</th>
+					<th>dimensione</th>
+					<th>Modifica</th>
+					<th>Cancella</th>
+				</tr>
+				<tr th:each="opera : ${opere}">
+					<td th:text="${opera.id}"><a href="/opera/${opera.id}">Id</a></td>
+					<td th:text="${opera.titolo}">titolo</td>
+					<td th:text="${opera.tecnica}">tecnica</td>
+					<td th:text="${opera.annoRealizzazione}">annoRealizzazione</td>
+					<td th:text="${opera.dimensione}">dimensione</td>
+					
+
+					<td><a th:href="${'/opera/edit/' + opera.id}">Modifica</a></td>
+					<td><a th:href="${'/opera/delete/' + opera.id}">Cancella</a></td>
+				</tr>
+			</table>
+
+		</div>
+	</div>
+
+</body>
+</html>

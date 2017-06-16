@@ -7,9 +7,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Version;
 
 @Entity
 public class Opera {
+	
+	@Version
+	private Integer version;
+
+	
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false)
@@ -55,6 +63,18 @@ public class Opera {
 	}
 	public void setTitolo(String titolo) {
 		this.titolo = titolo;
+	}
+	public Integer getVersion() {
+		return version;
+	}
+	public void setVersion(Integer version) {
+		this.version = version;
+	}
+	public Artista getArtista() {
+		return artista;
+	}
+	public void setArtista(Artista artista) {
+		this.artista = artista;
 	}
 
 

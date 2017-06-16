@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import it.uniroma3.GalleriaArte.model.Artista;
-import it.uniroma3.GalleriaArte.model.Opera;
 import it.uniroma3.GalleriaArte.repository.ArtistaRepository;
 
 
@@ -25,14 +24,18 @@ public class ArtistaService {
 		return this.artistaRepository.findOne(id);
 	}
 	@Transactional
-	public void remove(final Artista artista) {
-		this.artistaRepository.delete(artista);
+	public void remove(final Long id) {
+		this.artistaRepository.delete(id);
 	}
 	
 public Artista getArtistaById(Long id) {
 		
 		return artistaRepository.findOne(id);
 	}
+
+	
+	
+
 
 
 }

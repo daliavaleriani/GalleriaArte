@@ -10,45 +10,39 @@
 	<div class="container">
 		<!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
 
-		<h2>Inserisci Artista</h2>
+		<h2>Inserisci Opera </h2>
 		<div>
-			<form class="form-horizontal" th:object="${artista}"
-				th:action="@{/artista}" method="post">
+			<form class="form-horizontal" th:object="${opera}"
+				th:action="@{/opera}" method="post">
 				<input type="hidden" th:field="*{id}" /> <input type="hidden"
 					th:field="*{version}" />
 				<div class="form-group">
-					<label class="col-sm-2 control-label">Nome:</label>
+					<label class="col-sm-2 control-label">Titolo:</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{nome}" />
+						<input type="text" class="form-control" th:field="*{titolo}" />
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-2 control-label">Cognome:</label>
+					<label class="col-sm-2 control-label">AnnoRealizzazione:</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{cognome}" />
+						<input type="text" class="form-control" th:field="*{annoRealizzazione}" />
 					</div>
 
 				</div>
 				<div class="form-group">
-					<label class="col-sm-2 control-label">DataNascita:</label>
+					<label class="col-sm-2 control-label">Tecnica:</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{dataNascita}" />
+						<input type="text" class="form-control" th:field="*{tecnica}" />
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label">nazionalita:</label>
+						<label class="col-sm-2 control-label">Dimensione:</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" th:field="*{nazionalita}" />
+							<input type="text" class="form-control" th:field="*{dimensione}" />
 						</div>
 
 
 					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">DataMorte:</label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control" th:field="*{dataMorte}" />
-						</div>
-
-					</div>
+					
 
 				</div>
 				<div class="row">

@@ -15,15 +15,6 @@ import it.uniroma3.GalleriaArte.service.OperaService;
 @Controller
 public class MainController {
 
-
-
-	@RequestMapping("/")
-	String index(){
-		return "index";
-	}
-
-
-
 	@RequestMapping("artista/new")
 	public String newArtista(Model model){
 		model.addAttribute("artista", new Artista());
@@ -95,15 +86,10 @@ public class MainController {
 
 
 	@RequestMapping("artista/delete/{id}")
-	public String delete(Artista artista){
-		artistaservice.remove(artista);;
+	public String delete(@PathVariable Long id){
+		artistaservice.remove(id);
 		return "redirect:/artisti";
 	}
-
-
-
-
-
 
 
 }
