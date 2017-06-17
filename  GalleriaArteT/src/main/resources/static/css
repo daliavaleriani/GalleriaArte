@@ -1,2 +1,12 @@
 <link href="../static/css/guru.css"
           th:href="@{css/guru.css}" rel="stylesheet" media="screen"/>
+     
+
+input[type=submit] {
+     background:none!important;
+     border:none;
+     padding:0!important;
+     color: blue;
+     text-decoration: underline;
+     cursor:pointer;
+}

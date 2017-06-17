@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head lang="en">
 
 </head>
@@ -13,16 +14,21 @@
 						<a class="navbar-brand" href="#" th:href="@{/}">Home</a>
 						<ul class="nav navbar-nav">
 							<li><a href="#" th:href="@{/artisti}">Artisti</a></li>
-							<li><a href="#" th:href="@{/artista/new}">Crea Nuovo
-									Artista</a></li>
-							<li><a href="#" th:href="@{/opera/new}">Crea Nuova opera</a></li>
+							<li><a href="#" th:href="@{/artista/new}"
+								sec:authorize="hasRole('ROLE_ADMIN')">Crea Nuovo Artista</a></li>
+							<li><a href="#" th:href="@{/login}">Sign In</a></li>
+							<li><a href="#" th:href="@{/opera/new}"
+								sec:authorize="hasRole('ROLE_ADMIN')">Crea Nuova opera</a></li>
 							<li><a href="#" th:href="@{/opere/}">Opere</a></li>
 						</ul>
 
 					</div>
 				</div>
 			</nav>
-
+			<div class="welcome">
+				<span sec:authorize="isAuthenticated()">Welcome <span
+					sec:authentication="name"></span></span>
+			</div>
 			<div class="jumbotron">
 				<div class="row text-center">
 					<div class="">
@@ -31,13 +37,14 @@
 						<h3>Benvenuto nella Galleria</h3>
 					</div>
 				</div>
-					
-<div class="row text-center">
-    
-        <img src="file:///C:/Users/Chiara/Desktop/GalleriaArte-master/%20GalleriaArteT/src/main/resources/static/Immagine/parodi-dee.jpg" width="800"
-             th:src="@{/Immagine/parodi-dee.jpg}"/>
-   
-</div>
+
+				<div class="row text-center">
+
+					<img
+						src="file:///C:/Users/Chiara/Desktop/GalleriaArte-master/%20GalleriaArteT/src/main/resources/static/Immagine/parodi-dee.jpg"
+						width="800" th:src="@{/Immagine/parodi-dee.jpg}" />
+
+				</div>
 
 
 			</div>

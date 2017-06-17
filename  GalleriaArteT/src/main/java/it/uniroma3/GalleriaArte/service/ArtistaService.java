@@ -27,14 +27,14 @@ public class ArtistaService {
 	public void remove(final Long id) {
 		this.artistaRepository.delete(id);
 	}
-	
-public Artista getArtistaById(Long id) {
-		
+
+	public Artista getArtistaById(Long id) {
+
 		return artistaRepository.findOne(id);
 	}
 
-	
-	
+
+
 
 
 

@@ -72,7 +72,7 @@ public class MainController {
 
 
 	@RequestMapping("opera/{id}")
-	public String showProduct(@PathVariable Long id, Model model){
+	public String mostraOpera(@PathVariable Long id, Model model){
 		model.addAttribute("opera", operaservice.getOperaById(id));
 		return "mostraOpera";
 	}
@@ -89,6 +89,12 @@ public class MainController {
 	public String delete(@PathVariable Long id){
 		artistaservice.remove(id);
 		return "redirect:/artisti";
+	}
+
+	@RequestMapping("opera/delete/{id}")
+	public String deleteOpera(@PathVariable Long id){
+		operaservice.remove(id);
+		return "redirect:/opere";
 	}
 
 
