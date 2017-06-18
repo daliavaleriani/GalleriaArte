@@ -21,8 +21,9 @@ public class Artista {
 
 	@Override
 	public String toString() {
-		return this.nome;
+		return (this.nome+this.cognome);
 	}
+	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -75,7 +76,7 @@ public class Artista {
 		return dataMorte;
 	}
 
-	public void setDataMorte(String dataMorte) {
+	public void setDataMorte(String dataMorte) { 
 		this.dataMorte = dataMorte;
 	}
 

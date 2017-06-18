@@ -1,8 +1,14 @@
 package it.uniroma3.GalleriaArte.controller;
 
+
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,7 +37,8 @@ public class MainController {
 	private OperaService operaservice;
 
 	@RequestMapping(value = "opera", method = RequestMethod.POST)
-	public String saveOpera(Opera opera){
+	public String saveOpera(@ModelAttribute(value="opera") @Valid Opera opera,
+            BindingResult bindingResultArtista ){
 		operaservice.add(opera);
 		return "redirect:/opera/" + opera.getId();
 	}
@@ -51,7 +58,7 @@ public class MainController {
 	}
 
 	@RequestMapping(value = "artista", method = RequestMethod.POST)
-	public String saveArtista(Artista artista){
+	public String saveArtista( Artista artista ){
 		artistaservice.add(artista);
 		return "redirect:/artista/" + artista.getId();
 	}

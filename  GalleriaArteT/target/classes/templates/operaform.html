@@ -12,7 +12,7 @@
 		<form class="form-horizontal" th:action="@{/logout}" method="post">
 			<div class="form-group">
 				<div class="col-sm-10">
-					<h2>Opera Create/Update</h2>
+					<h2>Crea Opera</h2>
 				</div>
 				<div class="col-sm-2" style="padding-top: 30px;">
 					<input type="submit" value="Sign Out" />
@@ -54,6 +54,14 @@
 						<input type="text" class="form-control" th:field="*{dimensione}" />
 					</div>
 				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Artista id:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{artista}" />
+					</div>
+				</div>
+				
+				
 				<div class="row">
 					<button type="submit" class="btn btn-default">Invia</button>
 				</div>
