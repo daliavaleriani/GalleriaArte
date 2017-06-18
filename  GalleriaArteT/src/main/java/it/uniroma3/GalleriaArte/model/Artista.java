@@ -1,6 +1,7 @@
 package it.uniroma3.GalleriaArte.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -9,7 +10,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Version;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 
 
 @Entity
@@ -23,22 +29,29 @@ public class Artista {
 	public String toString() {
 		return (this.nome+this.cognome);
 	}
-	
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(nullable = false)
+	@NotNull
+	@Size(min=2, max=20)
 	private String nome;
 	@Column(nullable = false)
+	@NotNull
+	@Size(min=2, max=20)
 	private String cognome;
 
-
+	@NotNull
+	@Size(min=2, max=20)
 	private String nazionalita;
-
-	private String dataNascita;
-
-	private String dataMorte;
+	@NotNull
+	@Temporal(TemporalType.DATE)
+	private Date dataNascita;
+	@NotNull
+	@Temporal(TemporalType.DATE)
+	private Date dataMorte;
 
 
 	@OneToMany(mappedBy="artista")
@@ -64,19 +77,19 @@ public class Artista {
 
 
 
-	public String getDataNascita() {
+	public Date getDataNascita() {
 		return dataNascita;
 	}
 
-	public void setDataNascita(String dataNascita) {
+	public void setDataNascita(Date dataNascita) {
 		this.dataNascita = dataNascita;
 	}
 
-	public String getDataMorte() {
+	public Date getDataMorte() {
 		return dataMorte;
 	}
 
-	public void setDataMorte(String dataMorte) { 
+	public void setDataMorte(Date dataMorte) { 
 		this.dataMorte = dataMorte;
 	}
 

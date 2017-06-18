@@ -30,6 +30,8 @@
 					<label class="col-sm-2 control-label">Titolo:</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" th:field="*{titolo}" />
+						<div th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}">
+							ErroreTitolo</div>
 					</div>
 				</div>
 
@@ -38,6 +40,8 @@
 					<div class="col-sm-10">
 						<input type="text" class="form-control"
 							th:field="*{annoRealizzazione}" />
+						<div th:if="${#fields.hasErrors('annoRealizzazione')}"
+							th:errors="*{annoRealizzazione}">ErroreAnno</div>
 					</div>
 				</div>
 
@@ -45,6 +49,8 @@
 					<label class="col-sm-2 control-label">Tecnica:</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" th:field="*{tecnica}" />
+						<div th:if="${#fields.hasErrors('tecnica')}"
+							th:errors="*{tecnica}">ErroreTecnica</div>
 					</div>
 				</div>
 
@@ -52,6 +58,8 @@
 					<label class="col-sm-2 control-label">Dimensione:</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" th:field="*{dimensione}" />
+						<div th:if="${#fields.hasErrors('dimensione')}"
+							th:errors="*{dimensione}">ErroreDimensione</div>
 					</div>
 				</div>
 				<div class="form-group">
@@ -60,8 +68,8 @@
 						<input type="text" class="form-control" th:field="*{artista}" />
 					</div>
 				</div>
-				
-				
+
+
 				<div class="row">
 					<button type="submit" class="btn btn-default">Invia</button>
 				</div>

@@ -2,24 +2,45 @@ package it.uniroma3.GalleriaArte.controller;
 
 
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.validation.Valid;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import it.uniroma3.GalleriaArte.model.Artista;
 import it.uniroma3.GalleriaArte.model.Opera;
 import it.uniroma3.GalleriaArte.service.ArtistaService;
 import it.uniroma3.GalleriaArte.service.OperaService;
 
 @Controller
-public class MainController {
+public class MainController  {
+
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+
+
+		String format = "dd/MM/yyyy";
+		SimpleDateFormat dateFormat = new SimpleDateFormat(format);
+		dateFormat.setLenient(false);
+		CustomDateEditor customDateEditor = new CustomDateEditor(dateFormat,true,format.length());
+
+		binder.registerCustomEditor(Date.class, customDateEditor);
+	}
+
+
+
 
 	@RequestMapping("artista/new")
 	public String newArtista(Model model){
@@ -38,7 +59,10 @@ public class MainController {
 
 	@RequestMapping(value = "opera", method = RequestMethod.POST)
 	public String saveOpera(@ModelAttribute(value="opera") @Valid Opera opera,
-            BindingResult bindingResultArtista ){
+			BindingResult bindingResultArtista ){
+		if (bindingResultArtista.hasErrors()) {
+			return "operaform";
+		}
 		operaservice.add(opera);
 		return "redirect:/opera/" + opera.getId();
 	}
@@ -58,7 +82,10 @@ public class MainController {
 	}
 
 	@RequestMapping(value = "artista", method = RequestMethod.POST)
-	public String saveArtista( Artista artista ){
+	public String saveArtista( @Valid Artista artista , BindingResult bindingResult){
+		if (bindingResult.hasErrors()) {
+			return "artistaform";
+		}
 		artistaservice.add(artista);
 		return "redirect:/artista/" + artista.getId();
 	}
