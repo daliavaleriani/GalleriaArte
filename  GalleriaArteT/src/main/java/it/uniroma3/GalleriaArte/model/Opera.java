@@ -41,8 +41,8 @@ public class Opera {
 	private String tecnica;
 	@Column(nullable = false)
 	@NotNull
-	@Min(2)
-	private int dimensione;
+	@Size(min=2,max=20)
+	private String dimensione;
 
 
 	@ManyToOne
@@ -62,10 +62,10 @@ public class Opera {
 	public void setTecnica(String tecnica) {
 		this.tecnica = tecnica;
 	}
-	public int getDimensione() {
+	public String getDimensione() {
 		return dimensione;
 	}
-	public void setDimensione(int dimensione) {
+	public void setDimensione(String dimensione) {
 		this.dimensione = dimensione;
 	}
 	public void setId(Long id) {

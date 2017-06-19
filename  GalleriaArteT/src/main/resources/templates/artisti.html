@@ -13,7 +13,7 @@
 		<div th:if="${not #lists.isEmpty(artisti)}">
 			<form th:action="@{/logout}" method="post">
 				<div class="col-sm-10">
-					<h2>Lista Artisti </h2>
+					<h2 >Lista Artisti </h2>
 				</div>
 				<div class="col-sm-2" style="padding-top: 30px;">
 					<span sec:authorize="isAuthenticated()"> <input
@@ -26,11 +26,12 @@
 				<tr>
 					<th>Id</th>
 
-					<th>nome</th>
-					<th>cognome</th>
-					<th>datanascita</th>
-					<th>datamorte</th>
-					<th>nazionalita</th>
+					<th>Nome</th>
+					<th>Cognome</th>
+					<th>Data Nascita</th>
+					<th>Data Morte</th>
+					<th>Nazionalita</th>
+					
 					
 					<th sec:authorize="hasRole('ROLE_ADMIN')">Modifica</th>
 					<th sec:authorize="hasRole('ROLE_ADMIN')">Cancella</th>
@@ -39,9 +40,11 @@
 					<td th:text="${artista.id}"><a href="/artista/${artista.id}">Id</a></td>
 					<td th:text="${artista.nome}">nome</td>
 					<td th:text="${artista.cognome}">cognome</td>
-					<td th:text="${artista.dataNascita}">datanascita</td>
-					<td th:text="${artista.dataMorte}">datamorte</td>
+					<td th:text="${artista.dataNascita}">dataNascita</td>
+					<td th:text="${artista.dataMorte}">dataMorte</td>
 					<td th:text="${artista.nazionalita}">nazionalita</td>
+				
+					
 					
 
 					<td sec:authorize="hasRole('ROLE_ADMIN')"><a

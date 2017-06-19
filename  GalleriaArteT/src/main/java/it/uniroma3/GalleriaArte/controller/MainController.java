@@ -3,7 +3,9 @@ package it.uniroma3.GalleriaArte.controller;
 
 
 import java.text.SimpleDateFormat;
+
 import java.util.Date;
+
 
 import javax.validation.Valid;
 
@@ -27,6 +29,8 @@ import it.uniroma3.GalleriaArte.service.OperaService;
 @Controller
 public class MainController  {
 
+
+	
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 
@@ -82,7 +86,7 @@ public class MainController  {
 	}
 
 	@RequestMapping(value = "artista", method = RequestMethod.POST)
-	public String saveArtista( @Valid Artista artista , BindingResult bindingResult){
+	public String saveArtista(@ModelAttribute(value="artista") @Valid Artista artista , BindingResult bindingResult){
 		if (bindingResult.hasErrors()) {
 			return "artistaform";
 		}
@@ -130,7 +134,9 @@ public class MainController  {
 		operaservice.remove(id);
 		return "redirect:/opere";
 	}
-
+	
+	
+	
 
 }
 
