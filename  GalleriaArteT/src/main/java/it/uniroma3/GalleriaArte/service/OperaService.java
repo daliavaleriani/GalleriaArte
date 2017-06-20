@@ -27,11 +27,16 @@ public class OperaService {
 		return this.operaRepository.findOne(id);
 	}
 	@Transactional
+	public Iterable<Opera> listOpereByTitolo(String titolo) {
+		return operaRepository.findByTitolo(titolo);
+	}
+
+	@Transactional
 	public void remove(final Long id) {
 		this.operaRepository.delete(id);
 	}
 	public Opera getOperaById(Long id) {
-		
+
 		return operaRepository.findOne(id);
 	}
 

@@ -2,25 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
-<title>Nuova Galleria</title>
+<title>Un tocco d'Arte</title>
 
 <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
 </head>
 <body>
 	<div class="container">
 		<!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
-		<form class="form-horizontal" th:action="@{/logout}" method="post">
-			<div class="form-group">
-				<div class="col-sm-10">
-					<h2>Crea Opera</h2>
-				</div>
-				<div class="col-sm-2" style="padding-top: 30px;">
-					<input type="submit" value="Sign Out" />
-				</div>
-			</div>
-		</form>
 
-
+		<h2>Crea Opera</h2>
 		<div>
 			<form class="form-horizontal" th:object="${opera}"
 				th:action="@{/opera}" method="post">

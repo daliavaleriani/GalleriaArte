@@ -2,8 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head lang="en">
-	<link href="../static/css/guru.css"
-          th:href="@{css/guru.css}" rel="stylesheet" media="screen"/>
+<link href="../static/css/guru.css" th:href="@{css/guru.css}"
+	rel="stylesheet" media="screen" />
 </head>
 <body>
 
@@ -20,10 +20,10 @@
 							<li><a href="#" th:href="@{/opere}">Opere</a></li>
 							<li><a href="#" th:href="@{/opera/new}"
 								sec:authorize="hasRole('ROLE_ADMIN')">Crea Nuova opera</a></li>
+							<li><a href="#" th:href="@{/login}">Log In</a></li>
+							<li><a href="#" th:href="@{/logout}"> Log out</a></li>
 							
-							<li><a href="#" th:href="@{/login}">Sign In</a></li>
 						</ul>
-
 					</div>
 				</div>
 			</nav>
@@ -34,7 +34,7 @@
 			<div class="jumbotron">
 				<div class="row text-center">
 					<div class="">
-						<h2>GALLERIA D'ARTE</h2>
+						<h2>Un tocco d'Arte</h2>
 
 						<h3>Benvenuto nella Galleria</h3>
 					</div>
@@ -42,8 +42,9 @@
 
 				<div class="row text-center">
 
-					<img src="http://www.baroque.it/images/arte/scultura/parodi/parodi-dee.jpg"
-						width="800"  />
+					<img
+						src="http://www.baroque.it/images/arte/scultura/parodi/parodi-dee.jpg"
+						width="800" />
 
 				</div>
 

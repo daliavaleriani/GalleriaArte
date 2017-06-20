@@ -4,6 +4,7 @@ package it.uniroma3.GalleriaArte.controller;
 
 import java.text.SimpleDateFormat;
 
+
 import java.util.Date;
 
 
@@ -30,7 +31,7 @@ import it.uniroma3.GalleriaArte.service.OperaService;
 public class MainController  {
 
 
-	
+
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 
@@ -134,9 +135,7 @@ public class MainController  {
 		operaservice.remove(id);
 		return "redirect:/opere";
 	}
-	
-	
-	
+
 
 }
 

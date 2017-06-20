@@ -27,7 +27,7 @@ public class Artista {
 
 	@Override
 	public String toString() {
-		return (this.nome+this.cognome);
+		return (this.nome+" "+this.cognome);
 	}
 
 

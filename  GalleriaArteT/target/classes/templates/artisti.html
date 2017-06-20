@@ -3,7 +3,7 @@
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head lang="en">
 
-<title>Galleria d'arte</title>
+<title>Un tocco d'Arte</title>
 
 <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
 </head>
@@ -13,15 +13,11 @@
 		<div th:if="${not #lists.isEmpty(artisti)}">
 			<form th:action="@{/logout}" method="post">
 				<div class="col-sm-10">
-					<h2 >Lista Artisti </h2>
+					<h2>Lista Artisti</h2>
 				</div>
-				<div class="col-sm-2" style="padding-top: 30px;">
-					<span sec:authorize="isAuthenticated()"> <input
-						type="submit" value="Sign Out" />
-					</span>
-				</div>
+
 			</form>
-			
+
 			<table class="table table-striped">
 				<tr>
 					<th>Id</th>
@@ -31,8 +27,8 @@
 					<th>Data Nascita</th>
 					<th>Data Morte</th>
 					<th>Nazionalita</th>
-					
-					
+
+
 					<th sec:authorize="hasRole('ROLE_ADMIN')">Modifica</th>
 					<th sec:authorize="hasRole('ROLE_ADMIN')">Cancella</th>
 				</tr>
@@ -43,9 +39,9 @@
 					<td th:text="${artista.dataNascita}">dataNascita</td>
 					<td th:text="${artista.dataMorte}">dataMorte</td>
 					<td th:text="${artista.nazionalita}">nazionalita</td>
-				
-					
-					
+
+
+
 
 					<td sec:authorize="hasRole('ROLE_ADMIN')"><a
 						th:href="${'/artista/edit/' + artista.id}">Modifica</a></td>
